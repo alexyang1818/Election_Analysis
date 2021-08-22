@@ -1,5 +1,6 @@
 # Election_Analysis
 counties = ['A', 'B', 'C']<br>
+len(counties) -> 3 <br>
 counties[0:2] -> 'A', 'B'<br>
 counties[-1] -> 'C'<br>
 counties.remove('A')<br>
