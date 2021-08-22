@@ -1,8 +1,8 @@
 # Election_Analysis
-counties = ['A', 'B', 'C']
-counties[0:2] -> 'A', 'B'
-counties[-1] -> 'C'
-counties.remove('A')
-counties.pop(1)
-counties.append('D')
-counties.insert(1, 'E')
+counties = ['A', 'B', 'C']<br>
+counties[0:2] -> 'A', 'B'<br>
+counties[-1] -> 'C'<br>
+counties.remove('A')<br>
+counties.pop(1)<br>
+counties.append('D')<br>
+counties.insert(1, 'E')<br>
