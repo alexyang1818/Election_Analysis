@@ -26,7 +26,6 @@ The Python script used here can be modified to analyze any other elections. For 
 ```
 ### testing candidate sorting ###
 candidates_sorted = []
-sort_index = 0
 
 for candidate_name in candidate_options:
     candidates_sorted.append({"name":candidate_name, "votes":candidate_votes[candidate_name]})
