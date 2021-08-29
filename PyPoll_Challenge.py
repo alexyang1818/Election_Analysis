@@ -152,3 +152,57 @@ with open(file_to_save, "w") as txt_file:
 
     # Save the winning candidate's name to the text file
     txt_file.write(winning_candidate_summary)
+
+
+### testing candidate sorting ###
+candidates_sorted = []
+sort_index = 0
+
+for candidate_name in candidate_options:
+    candidates_sorted.append({"name":candidate_name, "votes":candidate_votes[candidate_name]})
+
+print(candidates_sorted)
+
+for j in range(len(candidates_sorted)-1):
+    for i in range(len(candidates_sorted)-1):
+        if candidates_sorted[i]["votes"] < candidates_sorted[i+1]["votes"]:
+            temp = candidates_sorted[i+1]
+            candidates_sorted[i+1] = candidates_sorted[i]
+            candidates_sorted[i] = temp
+
+print(candidates_sorted)
+
+### testing finding duplicate ballots ###
+number_of_duplicates = 0
+ballot = {}                 # store single ballots
+ballots = []                # collect all ballots
+ballotIDs = []              # list of ballot ID
+ballots_duplicates = []     # record ballots with duplicates
+
+with open(file_to_load) as election_data:
+    reader = csv.reader(election_data)
+
+    # Read the header
+    header = next(reader)
+
+    # For each row in the CSV file.
+    for row in reader:
+        ballot = {}
+        for i in range(len(header)):
+            ballot[header[i]] = row[i]
+        ballots.append(ballot)
+        ballotIDs.append(ballot[header[0]])
+
+ballotIDs.sort()
+
+for i in range(len(ballotIDs)-1):
+    if ballotIDs[i] == ballotIDs[i+1]:
+        number_of_duplicates += 1
+        ballots_duplicates.append(ballotIDs[i])
+
+print(f"Number of Duplicate Ballots: {number_of_duplicates}")
+if number_of_duplicates > 0:
+    print(
+        f"Duplicated Ballot IDs:\n"
+        f"{ballots_duplicates}"
+        )
